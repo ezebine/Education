@@ -1,0 +1,920 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #EDF0F1;
+    position: relative;
+}
+header{
+    width: 100%;
+    height: 11vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 0 100px;
+    background-color: #fff;
+    
+}
+.active{
+    position: fixed;
+    background-color: rgba(248,249,250,0.9);
+    z-index: 9999;
+}
+nav .nav-links{
+    width: 100%;
+    gap: 2.3em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+/* home/about/courses on hover */
+.nav-links a:hover{
+    color: #009eef;
+    transition: 0.3s;
+}
+.school-logo{
+width: 6%;
+}
+header a{
+    text-decoration: none;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+    color: #757575;
+}
+ .home{
+    color: #009eef;
+}
+.nav-btns{
+    width: 14.2rem;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    
+}
+.nav-btns a{
+border-radius: 30px;
+padding: 7px 15px;
+outline: none;
+
+}
+.nav-btns .login{
+    background-color: #009eef;
+    color: #fff;
+    padding: 9px 28px;
+    border: none;
+}
+/* login button on hover */
+.nav-btns .login:hover{
+    border: 1px solid #009eef;
+    color: #009eef;
+    background: transparent;
+}
+.nav-btns .signup{
+    border: 1px solid #009eef;
+    color: #009eef;
+    background: transparent;
+}
+.nav-btns .signup:hover{
+    background-color: #009eef;
+    color: #fff;
+}
+.nav-btns a:hover{
+    transition: 0.3s;
+}
+.nav-icons{
+    display: none;
+}
+
+
+/* =====MEDIA QUERIES=====*/
+/* Tablets */
+@media screen and (max-width:991px) {
+    header{
+        height: 5rem;
+        padding: 0 40px 0 40px;
+        gap: 3rem;
+        justify-content: end;
+        position: relative;
+    }
+    header .school-logo{
+        width: 4rem;
+        position: absolute;
+        left: 40px;
+    }
+    
+    header .nav-links{
+        width: 28%;
+        position: fixed;
+        flex-direction: column;
+        top: 90px;
+        right: 40px;
+        display: none;
+    }
+    .nav-links li{
+        width: 100%;
+        height: 3.8rem;
+        background-color: rgb(255, 255, 255);
+        animation: animateNavLinks 700ms linear forwards;
+        transform-origin: top right;
+        box-shadow: 4rem 6rem 10rem rgba(88, 88, 88, 0.6) ;
+    }
+    @keyframes animateNavLinks{
+        0%{
+            transform: rotateZ(-100deg);
+        }
+        100%{
+            transform: rotateZ(0);
+        }
+    }
+    .nav-links li:hover{
+        background-color: #009eef; 
+        transition: 0.3s;    
+    }
+    .nav-links li a{
+        width: 100%;
+        height: 100%;
+        color: #009eef;
+        display: grid;
+        place-items: center;
+    }
+    .nav-links li:hover a{
+        color: #ffffff;
+    }
+    header .nav-btns{
+        width: 15rem;
+        justify-content: center;
+        gap: 24px;
+    }
+    header .signup-btn{
+        padding: 0.48rem 1.25rem ;
+    }
+    .nav-icons{
+        display: inline-block;
+        color: #000;
+    }
+    header .bi{
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    header .bi-x{
+        display: none;
+    }
+    
+}
+
+/* Headline starts */
+.header{
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    padding: 0 100px;
+}
+.headline-text{
+    height: 100%;
+    padding-top: 7.2rem;
+}
+.headline-heading{
+    width: 88%;   
+}
+.headline-text h2{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 60px;
+    font-size: 55px;
+    margin-bottom: 1.875rem;
+    color: #009eef;
+}
+.headline-text span{
+    color: #000;
+}
+.headline-text p{
+    font-family: 'Varela Round', sans-serif;
+    color: #574F4F;
+    font-size: 1.125rem;   
+}
+.headline-btns{
+    width: 100%;
+    margin-top: 45px; 
+    gap: 1.5rem;
+}
+.headline-btns a{
+text-decoration: none;
+padding: 20px 27px;
+border-radius: 50px;
+font-family: 'Varela Round', sans-serif;
+font-size: 18px;
+}
+.headline-btns .explorecourses{
+background-color: #009eef;
+color: #fff;
+padding: 22px 27px;
+margin-right: 20px;
+}
+/* explore courses on hover */
+.headline-btns .explorecourses:hover{
+    color: #009eef;
+    background-color:#EDF0F1;
+    border: 1px solid #009eef;
+}
+.headline-btns .learnmore{
+    color: #009eef;
+    border: 1px solid #009eef;
+    text-align: center;
+}
+/* learn more on hover */
+.headline-btns a:hover{
+    background-color: #009eef;
+    color: #fff;
+}
+.headline-btns a:hover{
+    transition: 0.3s;
+}
+.headline-img{
+    height: 100%;
+    background-image: url(./images/headline-img.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    
+}
+
+/* ===== OUR POPULAR COURSES ===== */
+.popular-courses{
+    width: 100%;
+    padding: 40px 100px;
+}
+.title{
+    width: 100%;
+    margin: auto;
+    padding: auto;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.875rem;
+    color: #574F4F;
+}
+.title h3{
+    text-align: center;
+}
+/* Search for courses and category block*/
+.courses-categories{
+    width: 55%;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3.125rem;
+    justify-content: center;
+    margin: auto;
+    margin-top: 1.875rem;
+}
+.search-course{
+border: 2px solid #009eef;
+display: flex;
+justify-content: space-around;
+align-items: center;
+gap: 20px;
+padding: 0 17px 0 25px;
+border-radius: 50px;
+}
+.search-course input{
+width: 80%;
+border: none;
+outline: none;
+background: transparent;
+font-size: 18px;
+font-family: 'Varela Round', sans-serif;
+color: #000;
+}
+.search-course input::placeholder{
+color: #000;
+}
+.find-categories{
+    border: 2px solid #009eef;
+    display: flex;
+    justify-content: space-around;
+    gap: 25px;
+    padding: 0 10px 0 15px;
+    align-items: center;
+    border-radius: 50px;
+    font-family: 'Varela Round', sans-serif;
+}
+.find-categories span{
+    font-size: 18px;
+}
+
+/* flexbox popular courses */
+.course-box{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+   gap: 30px;
+   padding: 45px 0;
+ }
+ .course{
+    width: 35%;
+    height: 100%;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+ }
+ .course:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.4s;
+    transform: scale(1);
+
+} 
+ .course .course1-img{
+    width: 100%;
+    height: 55%;
+    background-image: url(./images/wordpress.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+ .course .course2-img{
+    width: 100%;
+    height: 55%;
+    background-image: url(./images/cv_writing.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+ }
+ .course .course3-img{
+    width: 100%;
+    height: 55%;
+    background-image: url(./images/cv_writing.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+ .course-content{
+    width: 100%;
+    height: 45%;
+    font-family: 'Varela Round', sans-serif;
+    padding: 35px 15px 20px 15px;
+    background-color: #fff;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ }
+ .name-price{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+ }
+ .name-price span{
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-size: 16px;
+ } 
+ .name-price .name{
+    color: #fff;
+    background-color: #F17D12;
+ }
+ .name-price .price{
+    border: 1px solid #000;
+    font-weight: bold;
+ }
+ .course-brief{
+    font-size: 18px;
+    margin: 7px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+ }
+
+.bi-play-fill{
+    font-size: 22px;
+}
+.videos-duration {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.videos-duration .videos{
+    display: flex;
+    align-items: center;  
+}
+.videos-duration .duration{
+    display: flex;
+    align-items: center;
+    gap: 5px;  
+}
+.videos-duration span{
+    color: #292D32;
+    font-weight: 700;
+}
+.courses-btn{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+.courses-btn a{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 30px;
+    padding: 17px 30px;
+    background-color: #009eef;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+}
+.courses-btn a:hover{
+    color: #009eef;
+    background-color:#EDF0F1;
+    border: 1px solid #009eef;
+    transition: 0.3s;
+}
+
+/* SECTION1 RESPONSIVE ON TABLETS */
+/* @media screen and (max-width: 1024px){
+    .header{
+        
+       grid-template-columns: 50% 50%;
+       padding: 0 40px 0 40px;
+    }
+    .headline-heading{
+        width: 95%;
+    }
+    .title{
+        width: 70%;
+    }
+    .courses-categories{
+        width: 55%;
+    }
+    
+    .course-box{
+        padding: 0 40px 0 40px;
+        margin-top: 0;
+        height: 50vh;
+    }
+    .course{
+        height: 100%;
+    }
+    .image-box{
+        height: 45%;
+    }
+    .course-content{
+        height: 55%;
+    }
+    .name-price span{
+        width: 80%;
+        display: block;
+        margin: 0%;
+    }
+    .name-price .price{
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+
+   
+   
+} */
+
+/* =====OVERVIEW SECTION===== */
+.overview{
+    width: 100%;
+    height: 36rem;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding:0 100px 100px;
+    background-color: #fff; 
+}
+.overview-img{
+    width: 50%;
+    height: 100%;
+   display: flex;
+   align-items: center;
+}
+.overview-img img{
+    width: 100%;
+}
+.overview-content{
+    width: 50%;
+    height: 70%;
+    font-family: 'Varela Round', sans-serif;
+}
+.overview-headline{
+    width: 100%;
+    margin: auto;
+}
+.overview-headline h2{
+    font-size: 40px;
+    font-weight: 200;
+    line-height: 40px;
+    margin:0;
+}
+.overview-headline h3{
+    font-size: 30px;
+    color: #574F4F;
+    font-weight: 300; 
+    margin: 25px 0 0 0;
+}
+.overview-headline p{
+    font-size: 16px;
+    color: #574F4F;
+    font-weight: 500;
+    margin: 20px 0 0 0;
+    line-height: 23px;
+}
+.overview-btn{
+    width: 100%;
+    margin-top: 50px;
+}
+.overview-btn a{
+    width: fit-content;
+    text-decoration: none;
+    color: #fff;
+    padding: 18px 45px;
+    background-color: #009eef;
+    font-size: 18px;
+    border-radius: 50px;
+}
+.overview-btn a:hover{
+    color: #009eef;
+    background: transparent;
+    border: 1px solid #009eef;
+    transition: 0.3s;
+}
+
+/* =====COURSE CATEGORIES=====*/
+.categories{
+    height: 90vh;
+    width: 100%;
+    padding: 40px 0 ;
+    background-color: aquamarine;
+}.category-grid{
+    height: 23rem;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0 100px 0 100px;
+    margin-top: 50px;
+}
+.course-category{
+    width: 100%;
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    font-family: 'Varela Round', sans-serif;
+}
+.category-img{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px;
+}
+.category-img img{
+    width:75%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+.category1 .category-img{
+    background-color: #0E28B3;
+}
+.category2 .category-img{
+    background-color: #283c51;
+}
+.category3 .category-img{
+    background-color: #fc715b;
+}
+.category4 .category-img{
+    background-color: #1dd1b5;
+}
+.category-img:hover img{
+    transform: scale(0.5);
+    transform: rotate(8deg);
+    transition: all 0.5s;
+}
+/* category content */
+.category-content{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.category-content .heading{
+    width: 95%;
+}
+.category-content .heading h2{
+font-size: 24px;
+}
+.category-content .heading p{
+    font-size: 16px;
+    color: #515151;
+    margin-bottom: 0;
+}
+
+/* category links */
+.category-btns{
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    height: 25%;
+    border-color: chartreuse;
+}
+.category-btns a{
+    text-decoration: none;
+}
+.explore-link a{
+    color: #000;
+    font-size: 17px;
+    font-weight: 600;
+}
+.explore-link i{
+    margin-left: 5px;   
+}
+.crse{
+    width: 35%;
+    padding: 9px 0;
+    background-color: #009eef;
+    color: #fff;
+    border-radius: 30px;
+    text-align: center;
+}
+
+/* section four starts */
+.about{
+    width: 100%;
+    height: 72vh;
+    background-color: #fff;
+    padding: 40px 0;
+}
+.about-class{
+    width: 100%;
+    height: 100%; 
+}
+.about-seed{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    padding: 0 100px 0 100px;
+}
+.about-content{
+    width: 50%;
+    font-family: 'Varela Round', sans-serif;
+}
+.about-text{
+    width: 95%;
+
+}
+.about-text p{
+    line-height: 1.3;
+    color: #574f4f;
+    font-size: 17px;
+    margin-top: 30px;
+}
+.about-text h2{
+
+    font-size: 40px;
+    color: #574F4F;
+}
+.about-btns{
+    width: 100%;
+    margin-top: 50px;
+}
+.about-btns a{
+    width: fit-content;
+    text-decoration: none;
+    background-color: #009eef;
+    color: #fff;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-size: 18px;
+}
+.about-btns a:hover{
+    color: #009eef;
+    background:transparent;
+    border: 1px solid #009eef;
+    transition: 0.3s;
+}
+.about-img{
+    width:50%;
+    height:100%;
+   display: flex;
+   align-items: center;
+}.about-img img{
+    width: 100%;
+}
+
+/* ==========FAQs BEGINS========== */
+.section5{
+    width: 100%;
+    padding: 40px 100px;
+}
+.faq-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 40px;
+    overflow: auto;
+}
+.faq{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    background-color: #aaddf7;
+    cursor: pointer;
+    gap: 1.4rem;
+    padding: 2rem;
+    font-family: 'Varela Round', sans-serif;
+}
+.faq-icon{
+    font-size: 20px;
+    align-self: flex-start;
+    margin-top: 7px;
+    /* background-color: #0E28B3; */
+}
+.faq h4{
+    font-size: 17px;
+    line-height: 2.2;
+}
+.faq p{
+    font-size: 17px;
+    margin-top: 0.3rem;
+    display: none;
+    line-height: 1.3;
+}
+.faq.open p{
+    display: block;
+}
+
+/* ===========FOOTER BEGINS========== */
+footer{
+    width: 100%;
+    height: 85vh;
+    background-color: #343A40;
+    padding: 0 100px 0 100px;
+    font-family: 'Varela Round', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+.footer-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+}
+footer .divider hr{
+margin-top: 50px;
+}
+footer img{
+    width: 7%;
+}
+footer .footer-top-text{
+    width: 32%;
+    
+}
+footer .footer-top-text{
+    font-size: 18px;
+}
+.footer-middle{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-middle .subscribe{
+    width: 30%;
+}
+.subscribe h2{
+    margin: 20px 0;
+}
+.subscribe p{
+    font-size: 18px;
+    font-weight: 200;
+}
+.email-icon{
+    width: 60px;
+    height: 60px;
+    background-color: #009eef;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.email-icon .bi-envelope-fill{
+    font-size: 30px;
+    color: #fff;
+}
+.submit-email{
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-right: 8px;
+    margin-top: 30px;
+}
+.submit-email input{
+    width: 60%;
+    background:transparent;
+    border: none;
+    outline: none;
+    font-family: 'Varela Round', sans-serif;
+    color: #574f4f;
+    font-size: 17px;
+}
+
+.submit-email a{
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    background-color: #009eef;
+    padding: 12px 19px ;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.submit-email a:hover{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+.footer-list li{
+   list-style: none;
+   margin-top: 20px;
+}
+.footer-list.contact-us{
+    width: 25%;
+}
+.footer-list span{
+    font-weight: bold;
+}
+footer a{
+text-decoration: none;
+color: #fff;
+}
+.footer-list a:hover{
+color: #009eef;
+transition: 0.3s;
+}
+.footer-bottom{
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-bottom span{
+    font-size: 18px;
+}
+.footer-bottom .media a{
+    margin-left: 13px;
+    padding: 6px 8px ;
+    background-color: #62778F;
+    border-radius: 100px;
+    font-size: 18px; 
+   box-sizing: border-box; 
+}
+.footer-bottom .media a:hover{
+    background-color: #009eef; 
+    transition: 0.5s;
+}
+
+
+/* Reveal elements on scroll section */
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s;
+}
+.reveal.reveal-section{
+    transform: translateY(0);
+    opacity: 1;
+}
+

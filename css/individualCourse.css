@@ -1,0 +1,384 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #EDF0F1;
+    position: relative;
+}
+header{
+    height: 11vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 0 100px;
+    background-color: #fff;
+    
+}
+.active{
+    position: fixed;
+    top: 0;
+    background-color: rgba(248,249,250,0.9);
+    z-index: 9999;
+}
+nav .nav-links{
+    width: 100%;
+    gap: 2.3em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+/* home/about/courses on hover */
+.nav-links a:hover{
+    color: #009eef;
+    transition: 0.3s;
+}
+.school-logo{
+width: 6%;
+}
+header a{
+    text-decoration: none;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+    color: #757575;
+}
+ .home{
+    color: #009eef;
+}
+.nav-btns{
+    width: 20%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    
+}
+.nav-btns a{
+border-radius: 30px;
+padding: 7px 15px;
+outline: none;
+
+}
+.nav-btns .login{
+    background-color: #009eef;
+    color: #fff;
+    padding: 9px 28px;
+    border: none;
+}
+/* login button on hover */
+.nav-btns .login:hover{
+    border: 1px solid #009eef;
+    color: #009eef;
+    background: transparent;
+}
+.nav-btns .signup{
+    border: 1px solid #009eef;
+    color: #009eef;
+    background: transparent;
+}
+.nav-btns .signup:hover{
+    background-color: #009eef;
+    color: #fff;
+}
+.nav-btns a:hover{
+    transition: 0.3s;
+}
+
+/* ===== HEADER SECTION BEGINS ===== */
+.header{
+    width: 100%;
+    height: 55rem;
+}
+.header-heading{
+    margin: 2rem auto;
+    width: 60%;
+    /* background-color: #009eef; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem;
+}
+.header-heading a{
+    padding: 0.6rem 0.9rem;
+    color: #fff;
+    background-color: #F17D12;
+    text-decoration: none;
+    border-radius: 1.9rem;
+    font-size: 1rem;
+}
+.header-heading h3{
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2.5rem;
+}
+.header-heading p{
+    text-align: center; 
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    line-height: 1.6rem;
+}
+.video-player{
+    width:  100%; 
+    padding:0 6.25rem 1.5rem 6.25rem ;
+    display: flex;
+    justify-content: center;   
+}
+video{
+    object-fit: contain;
+    border-radius: 1.5rem;
+}
+video[poster]{
+    width: 85%;
+    height: 33rem;
+    color: #fff;
+    background-color:  #343A40;
+    
+}
+.about-course{
+    width: 100%;
+    height: 25rem;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    padding:0 6.25rem 0 6.25rem;
+    font-family: 'Varela Round', sans-serif;
+    align-items: center;
+    margin: 2rem auto;
+}
+.description-text{
+    width: 95%; 
+}
+.description-text h3{
+    font-size: 2.3rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+.description-text p{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    margin-bottom: 3rem;
+}
+.course-details{
+    border-radius: 3rem;
+    border: 0.1rem solid #EDF0F1;
+    padding: 3rem;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.course-details h4{
+    font-size: 1.5rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+}
+.course-details hr{
+    margin-bottom: 2rem;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.details li{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.details .bi{
+    color: #009eef;
+    
+}
+.details li span{
+    color: #574f4f;
+}
+
+/* DOWN BAR */
+.down-bar{
+    width: 100%;
+    height: 9rem;
+    background-color: #fff;
+    padding: 0 6.25rem 0 6.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    font-family: 'Varela Round', sans-serif;
+    border-top: 0.1rem solid #dcdcdc;
+}
+.down-bar p{
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.down-bar span{
+    color: #009eef;
+    font-weight: bold;
+    font-size: 1.875rem;
+}
+.bar-btn button{
+    padding: 15px 35px;
+    border-radius: 50px;
+    border: 1px solid #009eef;
+    background-color: #009eef;
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    color: #fff;
+}
+
+
+
+/* ===========FOOTER BEGINS========== */
+footer{
+    width: 100%;
+    height: 85vh;
+    background-color: #343A40;
+    padding: 3% 100px 0 100px;
+    font-family: 'Varela Round', sans-serif;
+    color: #fff
+}
+.footer-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    
+}
+footer .divider hr{
+margin-top: 50px;
+}
+footer img{
+    width: 7%;
+}
+footer .footer-top-text{
+    width: 32%;
+    
+}
+footer .footer-top-text{
+    font-size: 18px;
+}
+.footer-middle{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0px;
+}
+.footer-middle .subscribe{
+    width: 30%;
+}
+.subscribe h2{
+    margin: 20px 0;
+}
+.subscribe p{
+    font-size: 18px;
+    font-weight: 200;
+}
+.email-icon{
+    width: 60px;
+    height: 60px;
+    background-color: #009eef;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.email-icon .bi-envelope-fill{
+    font-size: 30px;
+    color: #fff;
+}
+.submit-email{
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    padding-left: 15px;
+    padding-right: 8px;
+    margin-top: 30px;
+}
+.submit-email input{
+    width: 60%;
+    background:transparent;
+    border: none;
+    outline: none;
+    font-family: 'Varela Round', sans-serif;
+    color: #574f4f;
+    font-size: 17px;
+}
+
+.submit-email a{
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    background-color: #009eef;
+    padding: 12px 19px ;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.submit-email a:hover{
+    transform: scale(0.9);
+    transition: 0.3s;
+}
+
+.footer-list li{
+   list-style: none;
+   margin-top: 20px;
+}
+.footer-list.contact-us{
+    width: 25%;
+}
+.footer-list span{
+    font-weight: bold;
+}
+footer a{
+text-decoration: none;
+color: #fff;
+}
+.footer-list a:hover{
+color: #009eef;
+transition: 0.3s;
+}
+.footer-bottom{
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.footer-bottom span{
+    font-size: 18px;
+}
+.footer-bottom .media a{
+    margin-left: 13px;
+    padding: 6px 8px ;
+    background-color: #62778F;
+    border-radius: 100px;
+    font-size: 18px; 
+   box-sizing: border-box; 
+}
+.footer-bottom .media a:hover{
+    background-color: #009eef; 
+    transition: 0.5s;
+}
+
+/* Reveal elements on scroll section */
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s;
+}
+.reveal.reveal-section{
+    transform: translateY(0);
+    opacity: 1;
+}
+

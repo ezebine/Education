@@ -1,0 +1,128 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #EDF0F1;
+    background-image: url(./images/headline-img.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
+.form{
+    width: 30%;
+    height: 70vh;
+    margin: auto;
+    background-color: #fff;
+    padding: 10px 30px;
+    font-family: 'Varela Round', sans-serif;
+    margin-top: 95px;
+    border-radius: 10px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+}
+.logo{
+    width: 100%;
+    height:15vh ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+   
+}
+.logo img{
+    width: 25%;
+}
+.logo span{
+    font-size: 18px;
+    color: #212529;
+    font-weight: bold;
+}
+
+.form-group{
+    margin-bottom: 22px;
+    position: relative;
+}
+.form label{
+    font-size: 16px;
+    color:#212529 ;
+    margin-bottom: 5px;
+    display: block
+}
+
+.form-group input{
+    width: 100%;
+    border: 2px solid #757575;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    padding:11px;
+    font-family: 'Varela Round', sans-serif;
+    opacity: 0.8;
+}
+.form-group input:focus{
+    outline: none;
+    fill: none;
+    background: transparent;
+}
+.form-group.error input{
+    border-color:#e74c3c ;
+}
+.form-group.success input{
+    border-color:#02b26e ;
+  
+}
+.form-group .err{
+    color:#e74c3c;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    visibility: hidden;
+    top: 70px;
+    font-size: 12px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.form-group.error .err{
+    visibility: visible;
+}
+.terms-services{
+    margin-top:10px;
+}
+.forgot-password a, .account-check a{
+    color: #009eef;
+    text-decoration: none;
+}
+.forgot-password{
+    position: absolute;
+    padding-top: 10px;
+    right: 0;
+}
+.signup-btn{
+    width: 100%;
+    color: #fff;
+    background-color: #009eef;
+    font-size: 18px;
+    font-family: 'Varela Round', sans-serif;
+    padding:11px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 27px;
+    cursor: pointer;
+}
+.account-check{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
