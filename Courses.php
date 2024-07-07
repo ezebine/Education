@@ -39,7 +39,7 @@ else {
 }
 
 // Retrieve the course slug from the URL parameters
-$category = isset($_GET['category']) ? $_GET['category'] : 'Our Courses';
+$category = isset($_GET['category']) ? $_GET['category'] : 'Nos cours';
 
 // Validate and sanitize the course slug
 $category = filter_var($category, FILTER_SANITIZE_STRING);
@@ -129,7 +129,7 @@ require 'lang.php';
             <p><?= __("We offer a wide range of courses that are designed to cater to your needs despite your skill levels. Whether you're looking to enhance your skills or start a new career, our courses are a great milestone to achieve your goals.") ?></p>
         </div>
 
-        <!-- New course container -->
+        <!-- New course container
         <div class="new-course">
             <div class="new-course-img">
                 <img src="images/wordpress.png" alt="">
@@ -156,7 +156,7 @@ require 'lang.php';
                    <a class="new-course-btn" href=""><?= __('Learn more') ?></a>
             </div>
             </div>
-        </div>
+        </div>  -->
     </section>
     <!-- =====HEADLINE SECTION ENDS===== -->
 
@@ -179,15 +179,14 @@ require 'lang.php';
                     <span><?= __('Category') ?></span>
                     <i class="bi bi-chevron-down"></i>
                     <div class="display-categories">
-                        <a href=""><?= __('Programming') ?></a>
-                        <a href=""><?= __('Office automation') ?></a>
-                        <a href="">Marketing</a>
-                        <a href=""><?= __('Infographics') ?></a>
+                        <a href=""><?= __('Security') ?></a>
+                        <a href=""><?= __('Education') ?></a>
                     </div>
                 </div>   
             </div>   
         </div>
     </form>
+    
     
 
 
@@ -203,7 +202,7 @@ require 'lang.php';
            <?php foreach ($courses as $course): ?>
             <a href="individualCourse.php?slug=<?=$course['slug']?>" class="course">
                 <div class="image-box course1-img">
-                    <img src="images/wordpress.png" alt="">
+                    <img src="images/cours.png" alt="">
                 </div>
                 <div class="course-content">
                <!-- course name and price -->
@@ -251,7 +250,7 @@ require 'lang.php';
             <div class="email-icon">
                 <i class="bi bi-envelope-fill"></i>
             </div>
-            <h2><?= __('Subscribe to our newsletter') ?></h2>
+            <h2><?= __('Enregistrer vous sur notre site') ?></h2>
             <p><?= __('Receive updates on our trainings and seminars every month.') ?></p>
             <div class="submit-email">
                 <input type="email" id="e-mail" name="email" placeholder="<?= __('Enter your email') ?>" required>
@@ -264,9 +263,9 @@ require 'lang.php';
             <div class="footer-list contact-us">
                 <span><?= __('Contact Us') ?></span>
                 <ul>
-                    <li>Email: info@seeds.cm</li>
-                    <li><?= __('Phone') ?>: +237 656-193-199</li>
-                    <li>BP 14947, Acacias, <?= __('Afriland First Bank Building') ?> Yaoundé, <?= __('Cameroon') ?></li>
+                    <li>Email: tezemfoudjiezebine@gmail.com</li>
+                    <li><?= __('Phone') ?>: +237 690-470-204</li>
+                    <li>Bonas Yaoundé, <?= __('Cameroon') ?></li>
                 </ul>
             </div>
 
