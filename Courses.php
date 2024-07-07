@@ -206,10 +206,7 @@ require 'lang.php';
                 </div>
                 <div class="course-content">
                <!-- course name and price -->
-               <div class="cat-price">
-                <span class="cat--name"><?= $course['category'] ?></span>
-                <span class="price">FCFA <?= $course['price'] ?>.00</span>
-               </div>
+              
                <!-- course brief -->
                <p class="course--name"><?= substr($course['course_name'], 0, 70) . '...'; ?></p>
                <div class="divider"></div>
