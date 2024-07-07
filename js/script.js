@@ -42,31 +42,44 @@ for(let i=0; i<=reveals.length; i++){
 }
 })
 
-// sign Up button on click
-const signupButton = document.querySelector('.signup-btn');
-const signupModal = document.querySelector('.signup-form');
-const overlay = document.querySelector('.overlay');
-
-signupButton.addEventListener('click', function(){
-    signupModal.classList.remove('modal-hidden');
-    overlay.classList.remove('modal-hidden');
-})
-
-
 // MEDIA QUERIES TABLETS
 // responsive nav
-const menuLinks =document.querySelector('.nav-links');
+// const menuLinks =document.querySelector('.nav-links');
 const showMenu = document.querySelector('.open-icon');
 const hideMenu = document.querySelector('.close-icon');
+const headerContainer= document.querySelector('.container');
+const navigationBar= document.querySelector('.navigation-bar');
 
 showMenu.addEventListener('click', function(){
-    menuLinks.style.display = 'block'
-    showMenu.style.display = 'none'
+    // headerContainer.style.backgroundColor = "#343A40";
+    navigationBar.style.display = 'block';
+    showMenu.style.display = 'none';
     hideMenu.style.display = 'block';
-})
+});
 
 hideMenu.addEventListener('click', function(){
-    menuLinks.style.display = 'none'
+    navigationBar.style.display = 'none'
     showMenu.style.display = 'block'
     hideMenu.style.display = 'none';
-})
+});
+
+
+// Contact Us via whatsapp
+function sendWhatsapp(){
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
+    
+    var url ="https://wa.me/+237681526616?text="
+    +"*Name :* " +name+"%0a"
+    +"*Email :* " +email+"%0a"
+    +"*Subject :* " +subject+"%0a"
+    +"*Message :* " +message+"%0a%0a"
+    
+    
+    window.open(url,'_blank').focus();
+    };
+
+

@@ -1,3 +1,8 @@
+<?php
+
+require 'lang.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,48 +16,66 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <!--========== Nav-bar starts========== -->
-    <header>
+
+    <!--========== NAV BAR STARTS ========== -->
+<header class="container">
         <!-- Nav-image -->
-        <img class="school-logo" src="/images/logo Digital School.png" alt="">
+        <a class="school-logo"  href="Home.php"><img src="images/logo Digital School.png" alt=""></a>
         <nav class="navigation-bar">       
             <!-- Nav-links -->
             <ul class="nav-links">
-                <li ><a href="Home.php">Home</a></li>
-                <li><a href="Courses.php">Courses</a></li>
-                <li><a href="About.php">About</a></li>
+                <li ><a href="Home.php"><?= __('Home') ?></a></li>
+                <li><a href="Courses.php"><?= __('Courses') ?></a></li>
+                <li><a href="About.php"><?= __('About') ?></a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
-        </nav>
+       
         <!-- login and signup links -->
         <div class="nav-btns">
-            <a href="login.php" class="login login-btn ">Login</a>
-            <a href="signup.php" class="signup signup-btn ">Sign Up</a>
+            <a href="login.php" class="login login-btn "><?= __('Login') ?></a>
+            <a href="signup.php" class="signup signup-btn "><?= __('Sign Up') ?></a>
         </div>
+        </nav>
+
+        <div class="nav--right">
+        <!-- language -->
+        <div class="language">
+            <a href="contact.php?lang=en"><img class="english hid" src="images/english.png" alt=""></a>
+            <a href="contact.php?lang=fr"><img class="french" src="images/french.png" alt=""></a>
+        </div>
+
+        <!-- menu icons -->
+        <div class="nav-icons">
+            <i class="bi bi-list open-icon"></i>
+            <i class="bi bi-x close-icon"></i>
+        </div>
+        </div>
+       
     </header>
-    <!--========== Nav-bar ends========== -->
+    <!--========== NAV BAR ENDS ========== -->
 
     <!-- =====CONTACT SECTION===== -->
-    <!-- <section class="contact"> -->
+    <section class="contact">
         <div class="contact-box contact-container">
+            <div class="wrapper">
         <div class="contact-aside">
             <div class="aside-img">
                 <img src="images/contactus.png" alt="">
             </div>
-                <h2>Contact Us</h2>
-                <p>Do you have specific needs? Contact us! We will discuss about it and find a solution for you</p>
+                <h2><?= __('Contact Us') ?></h2>
+                <p><?= __("Do you have specific needs? Contact us! We will discuss about it and find a solution for you") ?></p>
                 <ul class="contact-details">
                     <li>
                         <i class="bi bi-telephone-inbound"></i>
-                        <span> +237 690-470-204</span>
+                        <span>+237 656-193-199</span>
                     </li>
                     <li>
                         <i class="bi bi-envelope"></i>
-                        <span>tezemfoudjiezebine@gmail.com</span>
+                        <span>info@seeds.cm</span>
                     </li>
                     <li>
                         <i class="bi bi-geo-alt"></i>
-                        <span>Yaounde,Cameroon</span>
+                        <span>Yaoundé, <?= __('Cameroon') ?></span>
                     </li>
                 </ul>
                 <ul class="contact-socials">
@@ -62,157 +85,91 @@
                 </ul>
             </div>
             <!-- ====contact form==== -->
-            <form class="contact-form">
+            <form class="contact-form" action="">
                 <div class="form-name">
-                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="text" id="name" name="name" placeholder="<?= __('Name') ?>" required>
                     <input type="email" id="email" name="e-mail" placeholder="Email" required>
-                    </div>
-                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    <textarea name="message" id="message" rows="7" placeholder="Your message" required></textarea>
-                <button type="submit" >Send</button>
-            </form>    
-            
+                </div>
+                    <input type="text" id="subject" name="subject" placeholder="<?= __('Subject') ?>" required>
+                    <textarea name="message" id="message" rows="7" placeholder="<?= __('Your message') ?>" required></textarea>
+                <button onclick="sendWhatsapp()"><?= __('Send') ?></button>
+
+            </form> 
         </div>
     </section>
 
- <!-- ==========FOOTER BEGINS==========  -->
-<footer class="reveal reveal-section">
-   
+ 
+<!-- ==========FOOTER STARTS==========  -->
+<footer class="container reveal reveal-section">
     <div class="footer-top">
-        <img src="images/logo Digital School.png" alt="">
-        <div class="footer-top-text">
-        <p>Empowering Trainees for Rapid Technical Proficiency and Competitive Success.</p>
+        <a href="Home.php"><img src="images/logo Digital School.png" alt=""></a>
+        <p><?= __('Empowering Trainees for Rapid Technical Proficiency and Competitive Success.') ?></p>
     </div>
-    </div>
-    <hr class="divider">
+    <div class="divider-footer divider-top"></div>
 
     <!-- middle of footer -->
     <div class="footer-middle">
-
         <!-- subscribe to newsletter section -->
         <div class="subscribe">
-        <div class="email-icon">
-            <i class="bi bi-envelope-fill"></i>
+            <div class="email-icon">
+                <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h2><?= __('Subscribe to our newsletter') ?></h2>
+            <p><?= __('Receive updates on our trainings and seminars every month.') ?></p>
+            <div class="submit-email">
+                <input type="email" id="e-mail" name="email" placeholder="<?= __('Enter your email') ?>" required>
+                <button type="submit" ><?= __('SUBMIT') ?></button>
+            </div>
         </div>
-        <h2>Subscribe to our newsletter</h2>
-        <p>Receive updates on our trainings and seminars every month.</p>
-    
-    <div class="submit-email">
-        <input type="text" id="e-mail" name="email" placeholder="Enter your email">
-        <a href="">SUBMIT</a>
+
+        <div class="middle-3-col">
+            <!-- contact us section -->
+            <div class="footer-list contact-us">
+                <span><?= __('Contact Us') ?></span>
+                <ul>
+                    <li>Email: info@seeds.cm</li>
+                    <li><?= __('Phone') ?>: +237 656-193-199</li>
+                    <li>BP 14947, Acacias, <?= __('Afriland First Bank Building') ?> Yaoundé, <?= __('Cameroon') ?></li>
+                </ul>
+            </div>
+
+            <!-- Our pages section -->
+            <div class="footer-list">
+                <span><?= __('Our pages') ?></span>
+                <ul>
+                    <li><a href="Home.php"><?= __('Home') ?></a></li>
+                    <li><a href="About.php"><?= __('About') ?></a></li>
+                    <li><a href="Contact.php"><?= __('Contact') ?></a></li>
+                    <li><a href="Courses.php"><?= __('Courses') ?></a></li>
+                </ul>
+            </div>
+
+            <!-- language -->
+            <div class="footer-list">
+                <span><?= __('Language') ?></span>
+                <ul>
+                    <li><a href="contact.php?lang=en">English</a></li>
+                    <li><a href="contact.php?lang=fr">Français</a></li>  
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="divider-footer divider-bottom"></div>
 
-<!-- contact us section -->
-<div class="footer-list contact-us">
-    <span>Contact Us</span>
-    <ul>
-        <li>Email: tezemfoudjiezebine@gmail.com</li>
-        <li>Phone: +237 690-470-204</li>
-        <li>BP 14947, Ngoa-ekellé,  Yaoundé, Cameroun</li>
-    </ul>
-</div>
-
-<!-- Our pages section -->
-<div class="footer-list">
-    <span>Our pages</span>
-    <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">Courses</a></li>
-    </ul>
-</div>
-
-<!-- language -->
-<div class="footer-list">
-    <span>Language</span>
-    <ul>
-        <li><a href="">English</a></li>
-        <li><a href="">Français</a></li>
-        
-    </ul>
-</div>
-</div>
-<hr class="divider">
-
-<!-- bottom of footer -->
-<div class="footer-bottom">
-    <span>Copyright © 2023 All rights reserved</span>
-    <!-- media -->
-    <div class="media">
-        <a href=""><i class="bi bi-whatsapp"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a> 
+    <!-- bottom of footer -->
+    <div class="footer-bottom">
+        <span>Copyright © 2023 <?= __('All rights reserved') ?></span>
+        <!-- media -->
+        <div class="media">
+            <a href=""><i class="bi bi-whatsapp"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a> 
+        </div>
     </div>
-</div>
 </footer>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Récupérer les données du formulaire
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
-
-    // Configuration de l'envoi d'email
-    $to = 'votre-adresse-email@example.com';
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-
-    // Préparer le corps du message
-    $body = "Nom: $name\n";
-    $body .= "Email: $email\n";
-    $body .= "Sujet: $subject\n";
-    $body .= "Message:\n$message";
-
-    // Envoyer l'email
-    if (mail($to, $subject, $body, $headers)) {
-        http_response_code(200);
-        echo 'Email sent successfully!';
-    } else {
-        http_response_code(500);
-        echo 'Failed to send email. Please try again later.';
-    }
-} else {
-    http_response_code(405);
-    echo 'Method not allowed.';
-}
-?>
+<!-- ==========FOOTER ENDS ==========  -->
 
 <script src="js/script.js">
-    // java script du contact form ci dessus 
-    async function sendEmail(event) {
-  event.preventDefault();
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const subject = document.getElementById('subject').value;
-  const message = document.getElementById('message').value;
-
-  try {
-    const response = await fetch('/send-email.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({ name, email, subject, message }),
-    });
-
-    if (response.ok) {
-      alert('Email sent successfully!');
-    } else {
-      alert('Failed to send email. Please try again later.');
-    }
-  } catch (error) {
-    console.error('Error sending email:', error);
-    alert('An error occurred. Please try again later.');
-  }
-}
 </script>
-
-
 </body>
 </html>

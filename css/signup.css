@@ -6,8 +6,6 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: #EDF0F1;
-    background-image: url(./images/headline-img.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -139,4 +137,26 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 13px;
+}
+
+/* =====MEDIA QUERIES=====*/
+/* Breakpoint: 991px */
+@media screen and (max-width:991px){
+    .form{
+        width: 50%;
+    }
+}
+
+/* Breakpoint: 767px */
+@media screen and (max-width:767px){
+    .form{
+        width: 70%;
+    }
+}
+
+/* Breakpoint: 479px */
+@media screen and (max-width:479px){
+    .form{
+        width: 90%;
+    }
 }

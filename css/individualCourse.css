@@ -9,59 +9,69 @@ body{
     background-color: #EDF0F1;
     position: relative;
 }
+a{
+    text-decoration: none;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer;
+    font-size: 18px;
+}
+p, span{
+    font-size: 18px;
+}
 header{
+    width: 100%;
     height: 11vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 0 100px 0 100px;
     background-color: #fff;
-    
+    position: relative;
+    top: 0;
 }
 .active{
     position: fixed;
-    top: 0;
     background-color: rgba(248,249,250,0.9);
     z-index: 9999;
 }
-nav .nav-links{
-    width: 100%;
-    gap: 2.3em;
+.school-logo img{
+    width: 67.5px;
+    object-fit: cover;
+}
+.navigation-bar{
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
+    flex-basis: auto;
+    flex-grow: 1;
+}
+.nav-links{
+    display: flex;
+    gap: 2.3rem;
+    justify-content: flex-end;
     align-items: center;
+    margin: auto;
     list-style: none;
+    z-index: 9999;
 }
 /* home/about/courses on hover */
 .nav-links a:hover{
     color: #009eef;
     transition: 0.3s;
 }
-.school-logo{
-width: 6%;
-}
 header a{
-    text-decoration: none;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 18px;
     color: #757575;
 }
- .home{
+.home{
     color: #009eef;
 }
 .nav-btns{
-    width: 20%;
-    height: 40px;
     display: flex;
-    justify-content: space-between;
+    margin-right: 15px;
     align-items: center; 
-    
 }
 .nav-btns a{
-border-radius: 30px;
-padding: 7px 15px;
-outline: none;
-
+    border-radius: 30px;
+    padding: 7px 15px;
+    margin-left: 25px;
 }
 .nav-btns .login{
     background-color: #009eef;
@@ -87,123 +97,145 @@ outline: none;
 .nav-btns a:hover{
     transition: 0.3s;
 }
+.nav--right{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.language{
+    display: flex;
+    align-items: center;
+    /* background-color: #b30e60; */
+}
+.language img{
+    width: 35px;
+    height: 35px;
+
+}
+/* .english{
+    display: none;
+} */
+.nav-icons{
+    display: none;
+}
 
 /* ===== HEADER SECTION BEGINS ===== */
 .header{
     width: 100%;
-    height: 55rem;
+    padding:0 100px 0 100px ;
 }
 .header-heading{
-    margin: 2rem auto;
-    width: 60%;
-    /* background-color: #009eef; */
+    margin: 35px auto 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
     padding: 2rem;
+    font-family: 'Varela Round', sans-serif;
 }
-.header-heading a{
+.header-heading span{
     padding: 0.6rem 0.9rem;
     color: #fff;
     background-color: #F17D12;
     text-decoration: none;
     border-radius: 1.9rem;
-    font-size: 1rem;
-}
-.header-heading h3{
-    text-align: center;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 2.5rem;
+    font-size: 16px;
 }
 .header-heading p{
-    text-align: center; 
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    line-height: 1.6rem;
+    text-align: center;
+    font-size: 2.5rem;
+    max-width: 60%;
+    font-weight: 600;
 }
-.video-player{
-    width:  100%; 
-    padding:0 6.25rem 1.5rem 6.25rem ;
-    display: flex;
-    justify-content: center;   
-}
-video{
-    object-fit: contain;
-    border-radius: 1.5rem;
-}
-video[poster]{
-    width: 85%;
-    height: 33rem;
-    color: #fff;
-    background-color:  #343A40;
+
+.course-details{
+    max-width: 856px;
+    border-radius: 3rem;
+    margin:15px auto 15px;
     
 }
-.about-course{
-    width: 100%;
-    height: 25rem;
-    display: grid;
-    grid-template-columns: 65% 35%;
-    padding:0 6.25rem 0 6.25rem;
-    font-family: 'Varela Round', sans-serif;
-    align-items: center;
-    margin: 2rem auto;
-}
-.description-text{
-    width: 95%; 
-}
-.description-text h3{
-    font-size: 2.3rem;
-    color: #000;
-    margin-bottom: 1.5rem;
-}
-.description-text p{
-    font-size: 1.2rem;
-    line-height: 1.8rem;
-    margin-bottom: 3rem;
-}
-.course-details{
-    border-radius: 3rem;
-    border: 0.1rem solid #EDF0F1;
-    padding: 3rem;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.course-details h4{
-    font-size: 1.5rem;
-    color: #000;
-    margin-bottom: 1.5rem;
-}
-.course-details hr{
-    margin-bottom: 2rem;
-}
 .details{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    font-size: 1.3rem;
+    font-family: 'Varela Round', sans-serif;
 }
 .details li{
     list-style: none;
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 5px;
 }
 .details .bi{
+    font-size: 35px;
     color: #009eef;
     
 }
-.details li span{
-    color: #574f4f;
+.video-player{
+    max-width:  100%; 
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
+video{
+    max-height: 500px;
+    border: none;
+    outline: none;
+    object-fit: cover;
+    border-radius: 24px;
+}
+video[poster]{
+    width: 85%;
+    color: #fff;
+    background-color:  #343A40;
+}
+/* About course */
+.about-course{
+    padding: 0 100px;
+    width: 100%; 
+    align-items: center;
+    margin: 2rem auto;
+    text-align: center;
+}
+.description-text{
+    width: 75%;
+    margin: auto;
+}
+.about-course h3{
+    font-size: 2.3rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+   
+}
+.about-course p{
+    line-height: 1.8rem;
+    margin-bottom: 3rem;
+}
+.syllabus-text{
+    width: 75%;
+    margin: auto;
+}
+.overflow--scroll{
+    
+    height: 250px;
+    overflow: scroll;
+    background-color: #bfe4f7;
+    padding: 35px;
+    border: 1px solid #dcdcdc;
+}
+
 
 /* DOWN BAR */
 .down-bar{
-    width: 100%;
-    height: 9rem;
+    width: 100%; 
     background-color: #fff;
-    padding: 0 6.25rem 0 6.25rem;
+    padding: 35px 100px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     align-items: center;
     justify-content: space-between;
     position: fixed;
@@ -212,17 +244,21 @@ video[poster]{
     font-family: 'Varela Round', sans-serif;
     border-top: 0.1rem solid #dcdcdc;
 }
+.down-bar .price{
+    max-width: 315px;
+    
+}
 .down-bar p{
-    font-size: 1.4rem;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 .down-bar span{
     color: #009eef;
     font-weight: bold;
-    font-size: 1.875rem;
+    font-size: 25px;
 }
-.bar-btn button{
+.down-bar a{
     padding: 15px 35px;
     border-radius: 50px;
     border: 1px solid #009eef;
@@ -234,51 +270,51 @@ video[poster]{
 
 
 
+
 /* ===========FOOTER BEGINS========== */
 footer{
     width: 100%;
-    height: 85vh;
     background-color: #343A40;
-    padding: 3% 100px 0 100px;
+    padding: 60px 100px 0 ;
     font-family: 'Varela Round', sans-serif;
-    color: #fff
+    color: #fff;
 }
 .footer-top{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    
-}
-footer .divider hr{
-margin-top: 50px;
+    align-items: center;  
 }
 footer img{
-    width: 7%;
+    max-width: 75px;
+
 }
-footer .footer-top-text{
-    width: 32%;
-    
+.footer-top p{
+    max-width: 378px;
 }
-footer .footer-top-text{
-    font-size: 18px;
+.divider-footer{
+    opacity: .15;
+    background-color: #fff;
+    height: 1px;
+    width: 100%;
+}
+.divider-top{
+    margin-top:34px ;
+    margin-bottom: 100px;
+}
+.divider-bottom{
+    margin-top: 100px;
+    margin-bottom: 24px;
 }
 .footer-middle{
-    width: 95%;
     display: flex;
     justify-content: space-between;
-    margin: 40px 0px;
+    margin-bottom: -26px;
 }
-.footer-middle .subscribe{
-    width: 30%;
-}
-.subscribe h2{
-    margin: 20px 0;
-}
-.subscribe p{
-    font-size: 18px;
-    font-weight: 200;
+/* Subscribe to newsletter */
+ .subscribe{
+    max-width: 396px;
+    margin-right: 30px;
 }
 .email-icon{
     width: 60px;
@@ -288,59 +324,77 @@ footer .footer-top-text{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 32px;
 }
 .email-icon .bi-envelope-fill{
     font-size: 30px;
     color: #fff;
 }
+.subscribe h2{
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+.subscribe p{
+    font-weight: 200;
+}
 .submit-email{
-    width: 100%;
-    height: 60px;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 50px;
-    padding-left: 15px;
-    padding-right: 8px;
-    margin-top: 30px;
+    padding: 9px 13px 9px 0;
+    margin-top: 20px;
+    position: relative;
 }
 .submit-email input{
-    width: 60%;
-    background:transparent;
+    width: 100%;
     border: none;
     outline: none;
     font-family: 'Varela Round', sans-serif;
     color: #574f4f;
     font-size: 17px;
+    display: block;
+    border-radius: 30px;
+    padding: 15px 17px;
 }
 
-.submit-email a{
+.submit-email button{
     text-decoration: none;
     text-align: center;
-    color: #fff;
+    color: #fff;    
     background-color: #009eef;
-    padding: 12px 19px ;
+    padding: 15px 22px ;
     border-radius: 50px;
     font-weight: bold;
+    border: none;
+    transition: 0.3s;
 }
-.submit-email a:hover{
+.submit-email button:hover{
     transform: scale(0.9);
     transition: 0.3s;
 }
 
+.middle-3-col{
+    width: 100%;
+    max-width: 659px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex: 1 1 0%;
+}
+.contact-us li{
+    max-width: 265px;
+}
+
 .footer-list li{
    list-style: none;
-   margin-top: 20px;
-}
-.footer-list.contact-us{
-    width: 25%;
+   margin-top: 30px;
 }
 .footer-list span{
     font-weight: bold;
 }
 footer a{
-text-decoration: none;
 color: #fff;
 }
 .footer-list a:hover{
@@ -350,12 +404,12 @@ transition: 0.3s;
 .footer-bottom{
     width: 99%;
     display: flex;
+    gap: 15px;
     justify-content: space-between;
-    margin-top: 30px;
 }
-
 .footer-bottom span{
     font-size: 18px;
+    margin-bottom: 24px;
 }
 .footer-bottom .media a{
     margin-left: 13px;
@@ -368,6 +422,151 @@ transition: 0.3s;
 .footer-bottom .media a:hover{
     background-color: #009eef; 
     transition: 0.5s;
+}
+
+
+/* =====MEDIA QUERIES=====*/
+/* Tablets */
+@media screen and (max-width:991px) {
+    .reveal, .header, .down-bar{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    /* Header */
+    header{
+        height: 5rem;
+        padding: 0 40px 0 40px;
+        gap: 3rem; 
+    }
+    .school-logo{
+        position: absolute;
+        left: 40px;
+    }  
+    header .navigation-bar{
+        width: 100%;
+        position: fixed;
+        top: 81px;
+        right: 0px;
+        background-color: #EDF0F1;
+        display: none;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.19);
+    }
+    .nav-links{
+        flex-direction: column; 
+        gap: 0;
+    }
+    .nav-links li{
+        display: block;
+        line-height: 30px;
+        width: 100%;
+    }
+    .nav-links li:hover{
+        background-color: #009eef; 
+        transition: 0.3s;    
+    }
+    .nav-links li a{
+        color: #009eef;
+        display: grid;
+        place-items: center;
+        padding: 15px 0;
+
+    }
+    .nav-links li:hover a{
+        color: #ffffff;
+    }
+    .nav-btns{
+        justify-content: center;
+        margin: 15px 0;
+    }
+    .nav--right{
+        position: fixed;
+        right: 40px;
+    }
+    .nav-icons{
+        display: inline-block;
+        color: #000;
+    }
+    header .bi{
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    header .bi-x{
+        display: none;
+    }
+    .header-heading h3{
+        max-width: 100%;
+        font-size: 35px;
+    }
+    
+    /* footer */
+    .footer-middle{
+        flex-direction: column;
+        gap: 34px;
+        align-items: flex-start;
+    }
+    .footer-bottom{
+        flex-wrap: wrap-reverse;
+    }
+    
+}
+
+/* Breakpoint:767px */
+@media screen and (max-width:767px){
+    .reveal, .header, .down-bar{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    p,span,a{
+        font-size: 16px;
+    }
+    .header-heading h3{
+        font-size: 28px;
+    }
+    .footer-top{
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    .middle-3-col{
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    .description-text{
+        width: 100%; 
+    }
+    .syllabus-text{
+        width: 100%;
+    }
+    .down-bar{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .down-bar p{
+        font-size: 18px;
+    }
+    .down-bar span{
+        font-size: 20px;
+    }
+}
+
+/* Breakpoint:479px */
+@media screen and (max-width:479px){
+    .reveal, .header, .down-bar{
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .submit-email{
+        flex-direction: column;
+        background: transparent;
+        gap: 15px;
+    }
+    .submit-email input, .submit-email button{
+        width: 100%;
+    }
+    .submit-email button{
+        padding: 18px 0;
+    }  
 }
 
 /* Reveal elements on scroll section */

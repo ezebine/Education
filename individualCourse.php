@@ -1,3 +1,38 @@
+<?php
+// Retrieve the course slug from the URL parameters
+$courseSlug = isset($_GET['slug']) ? $_GET['slug'] : '';
+
+// Validate and sanitize the course slug
+$courseSlug = filter_var($courseSlug, FILTER_SANITIZE_STRING);
+
+// Connect to the database
+$dsn = 'mysql:host=localhost;dbname=ds';
+$username = 'root';
+$password = '';
+
+// Tentative de connexion à la base de données avec PDO
+try {
+    $pdo = new PDO($dsn, $username, $password);
+} catch (PDOException $e) {
+    die('Erreur de connexion : ' . $e->getMessage());
+}
+
+// Retrieve course details from database
+$sql = "SELECT * FROM course WHERE slug = :slug";
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(':slug', $courseSlug);
+$stmt->execute();
+
+$course = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+require 'lang.php';
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,152 +47,183 @@
 </head>
 <body>
 
-     <!--========== Nav-bar starts========== -->
-     <header>
+ <!--========== NAV BAR STARTS ========== -->
+ <header class="container">
         <!-- Nav-image -->
-        <img class="school-logo" src="images/logo Digital School.png" alt="">
+        <a class="school-logo"  href="Home.php"><img src="images/logo Digital School.png" alt=""></a>
         <nav class="navigation-bar">       
             <!-- Nav-links -->
             <ul class="nav-links">
-                <li ><a href="Home.php">Home</a></li>
-                <li><a href="Courses.php">Courses</a></li>
-                <li><a href="About.php">About</a></li>
+                <li ><a href="Home.php"><?= __('Home') ?></a></li>
+                <li><a href="Courses.php"><?= __('Courses') ?></a></li>
+                <li><a href="About.php"><?= __('About') ?></a></li>
                 <li><a href="contact.php">Contact</a></li>
             </ul>
-        </nav>
+       
         <!-- login and signup links -->
         <div class="nav-btns">
-            <a href="login.php" class="login login-btn ">Login</a>
-            <a href="signup.php" class="signup signup-btn ">Sign Up</a>
+            <a href="login.php" class="login login-btn "><?= __('Login') ?></a>
+            <a href="signup.php" class="signup signup-btn "><?= __('Sign Up') ?></a>
         </div>
-    </header>
-    <!--========== Nav-bar ends========== -->
+        </nav>
 
+        <div class="nav--right">
+        <!-- language -->
+        <div class="language">
+            <a href="individualCourse.php?lang=en"><img class="english hid" src="images/english.png" alt=""></a>
+            <a href="individualCourse.php?lang=fr"><img class="french" src="images/french.png" alt=""></a>
+        </div>
+
+        <!-- menu icons -->
+        <div class="nav-icons">
+            <i class="bi bi-list open-icon"></i>
+            <i class="bi bi-x close-icon"></i>
+        </div>
+        </div>
+       
+    </header>
+    <!--========== NAV BAR ENDS ========== -->
+
+
+<?php if ($course) { ?>
     <section class="header">
     <div class="header-heading">
-        <a href="">Marketing</a>
-        <h3>Deploying a website completely using wordpress.</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, accusamus. Saepe cumque, perspiciatis repellendus asperiores rem ratione tempora optio doloribus.</p>
+        <span><?= $course['category']; ?></span>
+        <p><?= $course['course_name'] ?></p>
+        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, accusamus. Saepe cumque, perspiciatis repellendus asperiores rem ratione tempora optio doloribus.</p> -->
     </div>
-
-    <!-- CUSTOM VIDEO PLAYER -->
-        <div class="video-player">
-            <video controls src="videos/dev.mp4" id="video" poster="images/item4.jpg"></video>
-        </div>
-    </section>
-
-        <!-- ABOUT COURSE -->
-        <div class="about-course">
-            <div class="description">
-                <div class="description-text">
-                <h3>About the course</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet quia necessitatibus error officiis commodi veniam consequuntur est earum. Provident sint pariatur perferendis dolorum. Dolorem in, facere voluptatum esse atque rerum dolore eaque consequatur itaque beatae numquam sequi quis error? Magnam modi aspernatur tempore animi iste?</p>
-                <hr>
-            </div>
-            </div>
-            <div class="course-details">
-                <h4>Course details</h4>
-                <hr>
-                <ul class="details">
-                    <li>
-                        <i class="bi bi-play-fill"></i>
-                        <span>3 videos</span>
+    <div class="course-details">
+            <ul class="details">
+                <li>
+                    <i class="bi bi-play-fill"></i>
+                    <span><?= $course['num_videos'] ?> <?= __('videos') ?></span>
+                </li>
+                <li>
+                    <i class="bi bi-stopwatch-fill"></i>
+                    <span><?= __('Duration') ?>:<?= $course['duration'] ?> <?= __('hours') ?></span>
                     </li>
-                    <li>
-                        <i class="bi bi-stopwatch-fill"></i>
-                        <span>Duration:1 hr</span>
-                    </li>
-                    <li>
-                        <i class="bi bi-phone-fill"></i>
-                        <span>Accessible through computer and mobile</span>
+                <li>
+                    <i class="bi bi-phone-fill"></i>
+                    <span><?= __('Accessible through computer, tablet and mobile') ?></span>
                         
                     </li>
                 </ul>
             </div>
+
+    <!-- CUSTOM VIDEO PLAYER -->
+        <div class="video-player">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/<?= $course['video_link'] ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- ABOUT COURSE -->
+    <div class="about-course reveal reveal-section">
+            <div class="description-text">
+            <h3><?= __('About course') ?></h3>
+            <p><?= $course['about_course'] ?></p>
         </div>
     
-        <div class="down-bar">
-            <div class="price">
-                <P>Get this course</P>
-                <span>FCFA 15000.000</span>
-            </div>
-            <div class="bar-btn">
-                <button type="submit" name="submit" value="Submit" class="btn btn-primary">Buy Now</button>
+        <!-- Course syllabus -->
+        <div class="syllabus-text">
+            <h3><?= __('Course syllabus') ?></h3>
+            <div class="overflow--scroll">
+            <p><?= $course['syllabus'] ?></p>
             </div>
         </div>
+        
+        </div>
+    
+        <!-- Down bar -->
+        <div class="down-bar">
+            <div class="price">
+                <p><?= __('Get this course') ?></p>
+                <span>FCFA <?= $course['price'] ?>.00</span>
+            </div>
+                <a class="buy--btn" href="buyCourse.php" onclick="checkLogin()"><?= __('Buy Now') ?></a>
+            
+        </div>
 
-        <!-- ==========FOOTER BEGINS==========  -->
-<footer class="reveal reveal-section">
-   
+        <?php } else { ?>
+        <h1>Course not found</h1>
+    <?php } ?>
+
+ <!-- ==========FOOTER STARTS==========  -->
+<footer class="container reveal reveal-section">
     <div class="footer-top">
-        <img src="images/logo Digital School.png" alt="">
-        <div class="footer-top-text">
-        <p>Empowering Trainees for Rapid Technical Proficiency and Competitive Success.</p>
+        <a href="Home.php"><img src="images/logo Digital School.png" alt=""></a>
+        <p><?= __('Empowering Trainees for Rapid Technical Proficiency and Competitive Success.') ?></p>
     </div>
-    </div>
-    <hr class="divider">
+    <div class="divider-footer divider-top"></div>
 
     <!-- middle of footer -->
     <div class="footer-middle">
-
         <!-- subscribe to newsletter section -->
         <div class="subscribe">
-        <div class="email-icon">
-            <i class="bi bi-envelope-fill"></i>
+            <div class="email-icon">
+                <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h2><?= __('Subscribe to our newsletter') ?></h2>
+            <p><?= __('Receive updates on our trainings and seminars every month.') ?></p>
+            <div class="submit-email">
+                <input type="email" id="e-mail" name="email" placeholder="<?= __('Enter your email') ?>" required>
+                <button type="submit" ><?= __('SUBMIT') ?></button>
+            </div>
         </div>
-        <h2>Subscribe to our newsletter</h2>
-        <p>Receive updates on our trainings and seminars every month.</p>
-    
-    <div class="submit-email">
-        <input type="text" id="e-mail" name="email" placeholder="Enter your email">
-        <a href="">SUBMIT</a>
+
+        <div class="middle-3-col">
+            <!-- contact us section -->
+            <div class="footer-list contact-us">
+                <span><?= __('Contact Us') ?></span>
+                <ul>
+                    <li>Email: info@seeds.cm</li>
+                    <li><?= __('Phone') ?>: +237 656-193-199</li>
+                    <li>BP 14947, Acacias, <?= __('Afriland First Bank Building') ?> Yaoundé, <?= __('Cameroon') ?></li>
+                </ul>
+            </div>
+
+            <!-- Our pages section -->
+            <div class="footer-list">
+                <span><?= __('Our pages') ?></span>
+                <ul>
+                    <li><a href="Home.php"><?= __('Home') ?></a></li>
+                    <li><a href="About.php"><?= __('About') ?></a></li>
+                    <li><a href="Contact.php"><?= __('Contact') ?></a></li>
+                    <li><a href="Courses.php"><?= __('Courses') ?></a></li>
+                </ul>
+            </div>
+
+            <!-- language -->
+            <div class="footer-list">
+                <span><?= __('Language') ?></span>
+                <ul>
+                    <li><a href="Home.php?lang=en">English</a></li>
+                    <li><a href="Home.php?lang=fr">Français</a></li>  
+                </ul>
+            </div>
+        </div>
     </div>
-</div>
+    <div class="divider-footer divider-bottom"></div>
 
-<!-- contact us section -->
-<div class="footer-list contact-us">
-    <span>Contact Us</span>
-    <ul>
-        <li>Email: info@seeds.cm</li>
-        <li>Phone: +237 656-193-199</li>
-        <li>BP 14947, Acacias, Afriland First Bank Building Yaoundé, Cameroun</li>
-    </ul>
-</div>
-
-<!-- Our pages section -->
-<div class="footer-list">
-    <span>Our pages</span>
-    <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">Courses</a></li>
-    </ul>
-</div>
-
-<!-- language -->
-<div class="footer-list">
-    <span>Language</span>
-    <ul>
-        <li><a href="">English</a></li>
-        <li><a href="">Français</a></li>
-        
-    </ul>
-</div>
-</div>
-<hr class="divider">
-
-<!-- bottom of footer -->
-<div class="footer-bottom">
-    <span>Copyright © 2023 All rights reserved</span>
-    <!-- media -->
-    <div class="media">
-        <a href=""><i class="bi bi-whatsapp"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-facebook"></i></a> 
+    <!-- bottom of footer -->
+    <div class="footer-bottom">
+        <span>Copyright © 2023 <?= __('All rights reserved') ?></span>
+        <!-- media -->
+        <div class="media">
+            <a href=""><i class="bi bi-whatsapp"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a> 
+        </div>
     </div>
-</div>
 </footer>
+<!-- ==========FOOTER ENDS ==========  -->
     
+<script src="js/script.js">
+    <script>
+    function checkLogin() {
+      // Call the check_login.php file to perform the login check
+      window.location.href = "check_login.php";
+    }
+  </script>
+</script>
 </body>
 </html>

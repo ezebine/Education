@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: hsl(195, 12%, 94%);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+.buy{
+    width:90%;
+    padding: 15px 80px;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    margin-top: 115px;
+    margin-bottom: 55px;
+    
+}
+.buy h1{
+    font-size: 45px;
+}
+.buy p{
+    font-size: 18px;
+    margin: 23px 0;
+    color: #fff;
+}
+.buy button{
+    padding: 9px 15px;
+    font-size: 18px;
+    background-color: #009eef;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    opacity: 0.9;
+}
+.buy button:hover{
+    opacity: 1111;
+}

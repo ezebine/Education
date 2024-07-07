@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password'])) {
         // Authentification réussie
         session_start(); // Démarrer la session
+        
     
         // Enregistrez les informations de l'utilisateur dans la session
         $_SESSION['username'] = $user['username'];
@@ -45,12 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: admin.php');
             exit(); // Assurez-vous de terminer l'exécution après la redirection
         } elseif ($user['role'] == 'User') {
-            header('Location: Home.php');
+            $_SESSION['logged_in'] = true;
+            header('Location: studentDasboard.php');
             exit();
         }
     } else {
         // Authentification échouée
         echo "Nom d'utilisateur ou mot de passe incorrect.";
+        exit;
     }
     
 }
@@ -67,7 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-image: url(./images/headline-img.jpg)">
+
     <!-- Sign Up form -->
     <form method="post" class="form modal-hidden">
         <div class="logo"><img src="images/logo Digital School.png" alt="">
@@ -85,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Enter password.." required>
             <span class="err">Error message</span>
-            <span class="forgot-password"><a href="retrieveAccount.html">Forgot Password ?</a></span>
+            <span class="forgot-password"><a href="retrieveAccount.php">Forgot Password ?</a></span>
         </div>
        
         <!-- Button -->
@@ -97,6 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
     </form>
     
-    <script src="js/signu.js"></script>
+    <!-- <script src="js/signup.js"></script> -->
 </body>
 </html>
